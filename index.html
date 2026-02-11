@@ -383,17 +383,9 @@
       isn't about fixing each other, it's about
       understanding... 🌹
     </p>
-    <button class="play-music-btn" id="playMusicBtn" onclick="playMusic()">
-      <span class="note-icon">🎵</span> Play Our Song
-    </button>
-    <div class="music-label">nothing · bruno major</div>
-    <div class="music-player" id="musicPlayer">
-      <iframe id="ytPlayer" width="360" height="200"
-        src=""
-        allow="autoplay; encrypted-media"
-        allowfullscreen></iframe>
-    </div>
-  </div>
+   <audio id="song" src="nothing.mp3" loop></audio>
+<div class="music-label">nothing · bruno major</div>
+</div>
 </div>
 
 <!-- CONFETTI -->
@@ -601,20 +593,13 @@
       document.getElementById('yesScreen').classList.add('active');
       createPetals('petals2',25);
       launchConfetti(); heartBurst();
+      playMusic();
     },500);
   }
 
   function playMusic(){
-    const btn=document.getElementById('playMusicBtn');
-    const player=document.getElementById('musicPlayer');
-    // Use the official Lyric & Chord Video: ucRVDoFkcxc
-    // Fallback: Live version VBI7HwsZpiM
-    document.getElementById('ytPlayer').src=
-      'https://www.youtube.com/embed/ucRVDoFkcxc?autoplay=1&loop=1&playlist=ucRVDoFkcxc';
-    player.classList.add('visible');
-    btn.textContent='🎵 Playing...';
-    btn.style.pointerEvents='none';
-    btn.style.opacity='.6';
+    document.getElementById('song').play();
+}
   }
 
   function playHappyChime(){
